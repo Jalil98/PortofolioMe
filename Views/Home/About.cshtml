@@ -1,0 +1,112 @@
+﻿@{
+    ViewData["Title"] = "Tentang Saya";
+}
+
+<div class="container mt-5 pt-5">
+    <div class="row align-items-center">
+        <!-- Foto Profil -->
+        <div class="col-md-4 text-center mb-4">
+            <img src="~/images/jali.png" alt="Foto Profil" class="rounded-circle shadow" style="width: 200px; height: 200px; object-fit: cover;">
+        </div>
+
+        <!-- Info Diri -->
+        <div class="col-md-8">
+            <h2 class="fw-bold mb-3" style="color: #5dade2;">Tentang Saya</h2>
+            <p class="text-muted fs-5">
+                Halo! Saya <strong>Jali Suhaman</strong>, seorang pengembang web dan penggiat AI yang berdedikasi untuk membangun solusi digital yang cerdas dan bermanfaat. Saya senang menggabungkan teknologi, pembelajaran, dan kreativitas dalam setiap proyek yang saya kerjakan.
+            </p>
+            <p class="text-muted fs-5">
+                Saya memiliki pengalaman dalam pengembangan aplikasi berbasis <strong>ASP.NET</strong>, <strong>Python</strong>, serta minat khusus dalam bidang <strong>AI/ML dan edukasi teknologi</strong>. Bagi saya, belajar tanpa batas adalah semangat utama.
+            </p>
+
+            <!-- Skill List -->
+            <h5 class="mt-4" style="color: #5dade2;">Keahlian Utama:</h5>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-dot"></i> ASP.NET MVC & Razor Pages</li>
+                <li><i class="bi bi-dot"></i> HTML, CSS, JavaScript, Bootstrap</li>
+                <li><i class="bi bi-dot"></i> Python & Machine Learning</li>
+                <li><i class="bi bi-dot"></i> Microsoft SQL Server & Entity Framework</li>
+                <li><i class="bi bi-dot"></i> Komunikasi, Presentasi, dan Edukasi</li>
+            </ul>
+
+            <!-- Tombol Navigasi -->
+            <div class="mt-4 d-flex flex-wrap">
+                <a class="btn btn-outline-info m-2 btn-hover-blue" data-bs-toggle="collapse" href="#karakterCollapse" role="button" aria-expanded="false" aria-controls="karakterCollapse">
+                    Karakter Pribadi
+                </a>
+                <a class="btn btn-outline-info m-2 btn-hover-blue" data-bs-toggle="collapse" href="#eduwork" role="button" aria-expanded="false" aria-controls="eduwork">
+                    Education & Work
+                </a>
+                <a class="btn btn-outline-info m-2 btn-hover-blue" data-bs-toggle="collapse" href="#future" role="button" aria-expanded="false" aria-controls="future">
+                    MyFuture Plan
+                </a>
+            </div>
+
+            <!-- Konten Collapse Karakter -->
+            <div class="collapse mt-3" id="karakterCollapse">
+                <div class="row align-items-center p-4" style="background-color: #f0faff; border-radius: 10px;">
+                    <div class="col-md-4 mb-3">
+                        <img src="/images/jali1.jpg" alt="Karakter" class="img-fluid rounded shadow">
+                    </div>
+                    <div class="col-md-8">
+                        <h4 class="fw-bold" style="color: #5dade2;">Karakter Pribadi</h4>
+                        <ul>
+                            <li>Humoris dan penuh semangat, sabar dalam menghadapi masalah tanpa memperbesarnya.</li>
+                            <li>Terus belajar menjadi amanah, jujur, dan istiqomah dalam kebaikan, khususnya dalam mengamalkan ilmu.</li>
+                            <li>Mandiri dan tidak ingin menjadi beban bagi orang lain.</li>
+                            <li>Polos dalam beberapa kondisi untuk menghindari kesalahpahaman; memilih waktu yang tepat untuk menjelaskan.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Konten Collapse Education & Work -->
+            <div class="collapse mt-3" id="eduwork">
+                <div class="p-4" style="background-color: #f0faff; border-radius: 10px;">
+                    <h4 class="fw-bold" style="color: #5dade2;">Education</h4>
+                    <ul>
+                        <li><strong>Universitas Amikom Purwokerto</strong> – Bachelor in Computer Science | GPA: 3.59 / 4.00<br>2018 - 2022, Purwokerto, Indonesia<br>Relevant courses: AI, Mobile & Website Programming, Architecture & Computer Organization, Human & Computer Interaction</li>
+                        <li><strong>PESMA Masjid Fatimatuzzahra</strong> – Ketua Mahasantri, Trainer of Public Speaking, Tasmih Juz 16 (Zayyid Ziddan)</li>
+                        <li><strong>Cendekia Laznas Al-Irsyad</strong> – Head of Program Oemah Sinau, Content Writer, Video Editing, Desain Grafis, Social Dedication</li>
+                    </ul>
+                    <h4 class="fw-bold mt-4" style="color: #5dade2;">Work Experience</h4>
+                    <ul>
+                        <li><strong>PT. KUMON DENGKLOK PERMAI</strong> – Assistant Math Specialist (2017–2018)<br>Developed lesson plans, supported students, mentored struggling learners.</li>
+                        <li><strong>PT. ORBIT VENTURA INDONESIA</strong> – AI Instructor & Mentor (2022–2024)<br>Created AI curriculum, led team projects, improved student satisfaction.</li>
+                        <li><strong>THE LAB INDONESIA</strong> – Instructor Python Programming (Aug 2024 – Present)<br>Increased student interest in coding through engaging Python classes.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Konten Collapse My Future Plan -->
+            <div class="collapse mt-3" id="future">
+                <div class="p-4" style="background-color: #f0faff; border-radius: 10px;">
+                    <h4 class="fw-bold" style="color: #5dade2;">My Future Plan</h4>
+                    <p>Saya senang dengan dunia pendidikan dan yakin bahwa pendidikan akan merubah dunia!</p>
+                    <p>Dalam kurun waktu 6–10 tahun ke depan, saya bercita-cita membangun yayasan pendidikan berbasis teknologi untuk semua kalangan khususnya yang kurang mampu, yatim, dan masyarakat umum agar memberi kebermanfaatan yang lebih luas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    ul li {
+        transition: transform 0.3s ease;
+    }
+
+        ul li:hover {
+            transform: translateX(5px);
+            color: #3498db;
+        }
+
+    .btn-hover-blue {
+        transition: all 0.3s ease;
+    }
+
+        .btn-hover-blue:hover {
+            background-color: #5dade2;
+            color: white;
+            transform: scale(1.05);
+        }
+</style>

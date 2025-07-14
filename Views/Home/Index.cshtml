@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Beranda";
+}
+
+<div class="container mt-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <img src="~/images/jali.png" alt="Foto Profil" class="rounded-circle shadow" style="width: 180px; height: 180px; object-fit: cover;">
+            <h1 class="mt-3 fw-bold" style="color: #5dade2;">Halo, Saya Jali Suhaman</h1>
+            <p class="lead text-muted">Web Developer • AI Enthusiast • Educator</p>
+
+            <div class="mt-4">
+                <a href="/Home/About" class="btn btn-outline-primary m-2 btn-hover">Tentang Saya</a>
+                <a href="/Home/Projects" class="btn btn-outline-primary m-2 btn-hover">Proyek</a>
+                <a href="/Home/Contact" class="btn btn-outline-primary m-2 btn-hover">Kontak</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-hover {
+        transition: all 0.3s ease;
+    }
+
+        .btn-hover:hover {
+            background-color: #5dade2;
+            color: white;
+            transform: scale(1.05);
+        }
+</style>
