@@ -1,21 +1,20 @@
-# Gunakan base image ASP.NET runtime
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /app
-EXPOSE 80
-ENV ASPNETCORE_URLS=http://+:80
-
-# Build stage
+# Stage 1: build
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 
-# Salin semua file dari root repo ke dalam container
-COPY . .
+# Copy csproj dan restore dependency
+COPY PortofolioMe/*.csproj ./PortofolioMe/
+RUN dotnet restore ./PortofolioMe/PortofolioMe.csproj
 
-# Publish aplikasi ASP.NET ke folder /app/publish
+# Copy semua file dan publish
+COPY . .
+WORKDIR /src/PortofolioMe
 RUN dotnet publish -c Release -o /app/publish
 
-# Final image
-FROM base AS final
+# Stage 2: runtime
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
+EXPOSE 80
+ENV ASPNETCORE_URLS=http://+:80
 ENTRYPOINT ["dotnet", "PortofolioMe.dll"]
