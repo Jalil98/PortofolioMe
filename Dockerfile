@@ -1,16 +1,21 @@
-# --- Build Stage ---
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# Gunakan base image ASP.NET runtime
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
+EXPOSE 80
+ENV ASPNETCORE_URLS=http://+:80
 
-COPY *.csproj ./
-RUN dotnet restore
+# Build stage
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
 
-COPY . ./
-RUN dotnet publish -c Release -o out
+# Salin semua file dari root repo ke dalam container
+COPY . .
 
-# --- Runtime Stage ---
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+# Publish aplikasi ASP.NET ke folder /app/publish
+RUN dotnet publish -c Release -o /app/publish
+
+# Final image
+FROM base AS final
 WORKDIR /app
-COPY --from=build /app/out .
-
+COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "PortofolioMe.dll"]
