@@ -1,20 +1,18 @@
-# Stage 1: build
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
-
-# Copy csproj dan restore dependency
-COPY PortofolioMe/*.csproj ./PortofolioMe/
-RUN dotnet restore ./PortofolioMe/PortofolioMe.csproj
-
-# Copy semua file dan publish
-COPY . .
-WORKDIR /src/PortofolioMe
-RUN dotnet publish -c Release -o /app/publish
-
-# Stage 2: runtime
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
+# Build stage
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
-COPY --from=build /app/publish .
-EXPOSE 80
-ENV ASPNETCORE_URLS=http://+:80
-ENTRYPOINT ["dotnet", "PortofolioMe.dll"]
+
+# Copy csproj dan restore dependencies
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copy semua file dan build release
+COPY . ./
+RUN dotnet publish -c Release -o /out
+
+# Runtime stage
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+COPY --from=build /out .
+
+ENTRYPOINT ["dotnet", "Portofolio.dll"]
